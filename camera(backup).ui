@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Camera</class>
+ <widget class="QMainWindow" name="Camera">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>812</width>
+    <height>666</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Camera</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0" rowspan="3">
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>1</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Window">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>145</red>
+            <green>145</green>
+            <blue>145</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Window">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>145</red>
+            <green>145</green>
+            <blue>145</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>145</red>
+            <green>145</green>
+            <blue>145</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Window">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>145</red>
+            <green>145</green>
+            <blue>145</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="previewPage">
+       <widget class="CQtOpenCVViewerGl" name="openCVviewer" native="true">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>481</width>
+          <height>401</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QPushButton" name="lockButton">
+      <property name="text">
+       <string>Start Capture</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2" colspan="2">
+     <widget class="QProgressBar" name="progressBar">
+      <property name="value">
+       <number>24</number>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="QLabel" name="label_7">
+      <property name="text">
+       <string>Estimated Completion Time:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="3">
+     <widget class="QLCDNumber" name="lcdNumber_2"/>
+    </item>
+    <item row="2" column="1" colspan="3">
+     <widget class="QTabWidget" name="captureWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab_2">
+       <attribute name="title">
+        <string>Image</string>
+       </attribute>
+       <layout class="QFormLayout" name="formLayout">
+        <item row="0" column="0" colspan="2">
+         <widget class="QPushButton" name="takeImageButton">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Load Configuration File</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string>Current Filter</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLabel" name="label_6">
+          <property name="text">
+           <string>Wave Length</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLCDNumber" name="lcdNumber_3"/>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Exposure:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QSpinBox" name="exposure_spin"/>
+        </item>
+        <item row="6" column="0">
+         <widget class="QPushButton" name="auto_exposure">
+          <property name="text">
+           <string>Auto Exposure</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="1">
+         <widget class="QSlider" name="exposure_slider">
+          <property name="minimum">
+           <number>-4</number>
+          </property>
+          <property name="maximum">
+           <number>4</number>
+          </property>
+          <property name="pageStep">
+           <number>2</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="tickPosition">
+           <enum>QSlider::TicksAbove</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="0">
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="8" column="0">
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>Gain:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="1">
+         <widget class="QDoubleSpinBox" name="gain_spin"/>
+        </item>
+        <item row="9" column="0">
+         <widget class="QPushButton" name="auto_gain">
+          <property name="text">
+           <string>Auto Gain</string>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="1">
+         <widget class="QSlider" name="gain_slider">
+          <property name="minimum">
+           <number>-4</number>
+          </property>
+          <property name="maximum">
+           <number>4</number>
+          </property>
+          <property name="pageStep">
+           <number>2</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="tickPosition">
+           <enum>QSlider::TicksAbove</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="11" column="0">
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="12" column="0">
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>Focus:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="12" column="1">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
+        </item>
+        <item row="14" column="0">
+         <widget class="QPushButton" name="auto_gain_2">
+          <property name="text">
+           <string>Auto Focus</string>
+          </property>
+         </widget>
+        </item>
+        <item row="14" column="1">
+         <widget class="QSlider" name="focus_slider">
+          <property name="minimum">
+           <number>-4</number>
+          </property>
+          <property name="maximum">
+           <number>4</number>
+          </property>
+          <property name="pageStep">
+           <number>2</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="tickPosition">
+           <enum>QSlider::TicksAbove</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="19" column="0">
+         <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string>Storage Location:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="20" column="0" colspan="2">
+         <widget class="QKeySequenceEdit" name="keySequenceEdit"/>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLCDNumber" name="lcdNumber"/>
+        </item>
+        <item row="3" column="0">
+         <widget class="QPushButton" name="pushButton">
+          <property name="text">
+           <string>Next</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab">
+       <attribute name="title">
+        <string>Lights</string>
+       </attribute>
+       <layout class="QFormLayout" name="formLayout_2">
+        <item row="0" column="0">
+         <widget class="QRadioButton" name="radioButton">
+          <property name="text">
+           <string>Light_1</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QRadioButton" name="radioButton_13">
+          <property name="text">
+           <string>Light_2</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QRadioButton" name="radioButton_3">
+          <property name="text">
+           <string>Light_3</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QRadioButton" name="radioButton_2">
+          <property name="text">
+           <string>Light_4</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QRadioButton" name="radioButton_12">
+          <property name="text">
+           <string>Light_5</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QRadioButton" name="radioButton_11">
+          <property name="text">
+           <string>Light_6</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="0">
+         <widget class="QRadioButton" name="radioButton_10">
+          <property name="text">
+           <string>Light_7</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="0">
+         <widget class="QRadioButton" name="radioButton_9">
+          <property name="text">
+           <string>Light_8</string>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="0">
+         <widget class="QRadioButton" name="radioButton_8">
+          <property name="text">
+           <string>Light_9</string>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="0">
+         <widget class="QRadioButton" name="radioButton_7">
+          <property name="text">
+           <string>Light_10</string>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="1">
+         <widget class="QRadioButton" name="radioButton_21">
+          <property name="text">
+           <string>Light_20</string>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="1">
+         <widget class="QRadioButton" name="radioButton_16">
+          <property name="text">
+           <string>Light_19</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="1">
+         <widget class="QRadioButton" name="radioButton_17">
+          <property name="text">
+           <string>Light_18</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="1">
+         <widget class="QRadioButton" name="radioButton_18">
+          <property name="text">
+           <string>Light_17</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QRadioButton" name="radioButton_19">
+          <property name="text">
+           <string>Light_16</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QRadioButton" name="radioButton_15">
+          <property name="text">
+           <string>Light_15</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QRadioButton" name="radioButton_14">
+          <property name="text">
+           <string>Light_14</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QRadioButton" name="radioButton_4">
+          <property name="text">
+           <string>Light_13</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QRadioButton" name="radioButton_5">
+          <property name="text">
+           <string>Light_12</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QRadioButton" name="radioButton_6">
+          <property name="text">
+           <string>Light_11</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>812</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <widget class="QMenu" name="menuCamera">
+     <property name="title">
+      <string>Camera</string>
+     </property>
+     <addaction name="actionStart"/>
+    </widget>
+    <addaction name="menuCamera"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuDevices">
+    <property name="title">
+     <string>Devices</string>
+    </property>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuDevices"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionStart">
+   <property name="text">
+    <string>Start</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>CQtOpenCVViewerGl</class>
+   <extends>QWidget</extends>
+   <header>cqtopencvviewergl.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>actionExit</sender>
+   <signal>triggered()</signal>
+   <receiver>Camera</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>154</x>
+     <y>130</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lockButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Camera</receiver>
+   <slot>toggleLock()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>582</x>
+     <y>58</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>450</x>
+     <y>75</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>record()</slot>
+  <slot>pause()</slot>
+  <slot>stop()</slot>
+  <slot>enablePreview(bool)</slot>
+  <slot>configureCaptureSettings()</slot>
+  <slot>takeImage()</slot>
+  <slot>startCamera()</slot>
+  <slot>toggleLock()</slot>
+  <slot>setMuted(bool)</slot>
+  <slot>stopCamera()</slot>
+  <slot>setExposureCompensation(int)</slot>
+ </slots>
+</ui>
